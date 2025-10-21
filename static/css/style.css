@@ -4,7 +4,7 @@
 @keyframes fadeIn { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
 @keyframes pulse {0%,100%{opacity:1;}50%{opacity:0.5;}}
 
-/* Classes */
+/* Animation Classes */
 .animate-fade-in { animation: fadeIn 0.5s ease-out; }
 .animate-pulse { animation: pulse 2s infinite; }
 
@@ -14,7 +14,7 @@
 ::-webkit-scrollbar-thumb { background:#c1c1c1; border-radius:3px; }
 ::-webkit-scrollbar-thumb:hover { background:#a0a0a0; }
 
-/* Room hover */
+/* Room hover & active */
 .room-item:hover { background:#f3f3f3; transform:translateX(2px); transition:all 0.2s ease; }
 .room-item.active { background:#e0e0e0; border-left:3px solid #9ca3af; }
 
@@ -24,11 +24,11 @@ button:hover { transform:translateY(-1px); transition:all 0.2s ease; }
 /* Input focus */
 input:focus { border-color:#9ca3af; transform:scale(1.01); transition:all 0.2s ease; }
 
-/* Active users */
+/* Active Users & Rooms List */
 #activeUsers { max-height:150px; overflow-y:auto; }
 #roomsList { max-height:200px; overflow-y:auto; }
 
-/* Messages */
+/* Messages container */
 #messagesContainer { scroll-behavior:smooth; }
 
 /* Selection */
@@ -38,3 +38,28 @@ input:focus { border-color:#9ca3af; transform:scale(1.01); transition:all 0.2s e
 .message-item { animation:fadeIn 0.4s ease-out; }
 .message-item:nth-child(even){animation-delay:0.1s;}
 .message-item:nth-child(odd){animation-delay:0.05s;}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .flex { flex-direction: column; }
+    #roomsList, #activeUsers { max-height:120px; }
+    .room-item { padding:6px 8px; }
+    input, button { width:100%; margin-bottom:8px; }
+    #messagesContainer { padding:10px; }
+}
+
+@media (max-width: 768px) {
+    .flex { flex-direction: column; }
+    #roomsList, #activeUsers { max-height:100px; }
+    .room-item { padding:5px 6px; font-size:0.9rem; }
+    input, button { width:100%; font-size:0.9rem; }
+    #messagesContainer { padding:8px; }
+}
+
+@media (max-width: 480px) {
+    .flex { flex-direction:column; }
+    #roomsList, #activeUsers { max-height:80px; }
+    .room-item { padding:4px 5px; font-size:0.85rem; }
+    input, button { width:100%; font-size:0.85rem; }
+    #messagesContainer { padding:6px; }
+}
